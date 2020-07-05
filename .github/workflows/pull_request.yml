@@ -12,7 +12,15 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
   
-  # These are tasks that run after checkout, add/remove/change as needed
+  # These are jobs that run after checkout, add/remove/change as needed
+  lint:
+    name: Run Linter
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
+      - name: Run Linter
+        run: echo 'Run your linter here'
+  
   tests:
     name: Run Tests
     runs-on: ubuntu-latest
