@@ -10,7 +10,7 @@ It currently includes:
 
 ## Instructions
 
-This will guide you through getting setup with this repo's default files and practices.
+This will guide you through getting setup with this repo's default files and practices. Skip a step or remove config files as relevant to your own workflows and needs.
 
 ### Create a new repo
 
