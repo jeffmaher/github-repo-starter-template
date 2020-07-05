@@ -1,0 +1,27 @@
+# Use for local development
+
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ---- SETUP YOUR DEFAULT PORT -----
+    # ports:
+    #   - '1337:1337'
+    volumes:
+      - .:/app
+  # ---- UNCOMMENT TO POSTGRESQL DATABASE AND REDIS (common for web apps) -----
+  #   links:
+  #     - database
+  #     - sessions
+  # database:
+  #   image: postgres:11
+  #   ports:
+  #     - '5432:5432'
+  #   environment:
+  #     - POSTGRES_HOST_AUTH_METHOD=trust
+  # sessions:
+  #   image: redis:5
+  #   ports:
+  #     - '6379:6379'

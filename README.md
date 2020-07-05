@@ -7,6 +7,7 @@ It currently includes:
 - Instructions to get started
 - Pull request creation and updates (i.e. where you might want to run tests)
 - Protecting your `main` branch
+- Dockerfile and Docker Compose (with PostgreSQL and Redis commented out defaults)
 
 ## Instructions
 
@@ -44,3 +45,6 @@ You'll likely be running tests or running static analysis tools when pull reques
 
 The workflow assumes that you'll want a checked out copy of your repository, and the first job does that. The example jobs after it all run in parallel after the `checkout` job completes.
 
+### Use PostgreSQL and Redis
+
+Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
