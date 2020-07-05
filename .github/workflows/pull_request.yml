@@ -17,9 +17,7 @@ jobs:
     needs: checkout
     steps:
       - name: Build the container
-        run: |
-          export BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-          docker build --build-arg ENV_APP_VERSION=$BRANCH_NAME -t this_container .
+        run: docker build --build-arg ENV_APP_VERSION=$GITHUB_REF -t this_container .
   
   ################################################
   # ADD/MODIFY/DELETE JOBS BELOW
