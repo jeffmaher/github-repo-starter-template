@@ -12,12 +12,11 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-  container_build:
-    runs-on: ubuntu-latest
-    needs: checkout
-    steps:
-      - name: Build the container
-        run: ls
+  # container_build:
+  #   runs-on: ubuntu-latest
+  #   needs: checkout
+  #   steps:
+  #     - name: Build the container
         # run: docker build -t this_container .
         # run: docker build --build-arg ENV_APP_VERSION=$GITHUB_REF -t this_container .
   
@@ -37,8 +36,8 @@ jobs:
   lint:
     name: Linter
     runs-on: ubuntu-latest
-    container: this_container
-    needs: container_build
+    container: alpine:3
+    needs: checkout
     steps:
       - name: Run Linter
         run: echo 'Run your linter here'
