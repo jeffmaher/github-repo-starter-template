@@ -54,3 +54,6 @@ jobs:
     steps:
       - name: Run Static Analysis
         run: echo 'Run your static analysis here'
+
+
+# If you want to deploy a branch review environment, you might do that here or outside this config via webhook (for example, Heroku uses a webhooks to do this)
