@@ -1,0 +1,20 @@
+name: Pull Request
+on: 
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Run Tests
+        run: echo 'Run your tests here'
+  security:
+    name: Run Security Scans
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Security Scans
+        run: echo 'Run your security scans'
