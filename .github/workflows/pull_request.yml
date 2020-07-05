@@ -1,0 +1,59 @@
+# Run when the PR is created, updated with a new commit, or re-opened after closed
+
+name: Pull Request
+on: 
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  # Creates a copy of your repository
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+  
+  ################################################
+  # ADD/MODIFY/DELETE JOBS BELOW
+  ################################################
+
+  ## Template for a job that runs after checkout
+  # <template job ID>:
+  #   name: <template job name>
+  #   runs-on: ubuntu-latest
+  #   needs: checkout
+  #   steps:
+  #     - name: <template step name>
+  #       run: echo 'Run something here'
+
+  lint:
+    name: Linter
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
+      - name: Run Linter
+        run: echo 'Run your linter here'
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
+      - name: Run Tests
+        run: echo 'Run your tests here'
+  security:
+    name: Security Scans
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
+      - name: Run Security Scans
+        run: echo 'Run your security scans'
+  static_analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    needs: checkout
+    steps:
+      - name: Run Static Analysis
+        run: echo 'Run your static analysis here'
+
+
+# If you want to deploy a branch review environment, you might do that here or outside this config via webhook (for example, Heroku uses a webhooks to do this)
