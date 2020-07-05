@@ -6,19 +6,21 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  # Creates a copy of your repository
-  checkout:
+  # Creates a copy of your repository and builds a container
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-  container_build:
-    runs-on: ubuntu-latest
-    needs: checkout
-    steps:
       - name: Build the container
-        run: docker build -t this_container $GITHUB_WORKSPACE
-        # run: docker build --build-arg ENV_APP_VERSION=$GITHUB_REF -t this_container .
+        run: docker build -t this_container .
+  # container_build:
+  #   runs-on: ubuntu-latest
+  #   needs: setup
+  #   steps:
+  #     - name: Build the container
+  #       run: docker build -t this_container $GITHUB_WORKSPACE
+  #       # run: docker build --build-arg ENV_APP_VERSION=$GITHUB_REF -t this_container .
   
   ################################################
   # ADD/MODIFY/DELETE JOBS BELOW
@@ -28,7 +30,7 @@ jobs:
   # <template job ID>:
   #   name: <template job name>
   #   runs-on: ubuntu-latest
-  #   needs: checkout
+  #   needs: setup
   #   steps:
   #     - name: <template step name>
   #       run: echo 'Run something here'
@@ -36,29 +38,29 @@ jobs:
   lint:
     name: Linter
     runs-on: ubuntu-latest
-    container: alpine:3
-    needs: checkout
+    container: this_container
+    needs: setup
     steps:
       - name: Run Linter
         run: echo 'Run your linter here'
   tests:
     name: Tests
     runs-on: ubuntu-latest
-    needs: checkout
+    needs: setup
     steps:
       - name: Run Tests
         run: echo 'Run your tests here'
   security:
     name: Security Scans
     runs-on: ubuntu-latest
-    needs: checkout
+    needs: setup
     steps:
       - name: Run Security Scans
         run: echo 'Run your security scans'
   static_analysis:
     name: Static Analysis
     runs-on: ubuntu-latest
-    needs: checkout
+    needs: setup
     steps:
       - name: Run Static Analysis
         run: echo 'Run your static analysis here'
