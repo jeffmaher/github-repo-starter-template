@@ -45,6 +45,14 @@ jobs:
   #     - name: <template step name>
   #       run: echo 'Run something here'
 
+  debug:
+    name: Debug output (for testing commands)
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Debug output
+        run: docker images
+  
   lint:
     name: Linter
     runs-on: ubuntu-latest
