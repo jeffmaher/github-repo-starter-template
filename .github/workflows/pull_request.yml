@@ -21,7 +21,7 @@ jobs:
       
       # LINTER
       - name: Run linter
-        run: docker-compose run ${{ github.repository }}:${{ github.head_ref }} app echo "Run linter"
+        run: docker-compose run app echo "Run linter"
         # run: echo 'Run your linter here'
       
       # TESTS
