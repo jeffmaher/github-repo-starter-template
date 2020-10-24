@@ -7,6 +7,7 @@ It currently includes:
 - Instructions to get started
 - Pull request creation and updates (i.e. where you might want to run tests)
 - Protecting your `main` branch
+- Dockerfile and Docker Compose (with PostgreSQL and Redis commented out defaults)
 
 ## Instructions
 
@@ -38,9 +39,12 @@ You'll want to change your default branch from `master` to `main`, as a sign of 
 1. Click the garbage can next to the `master` branch
     - ![](github-starter-repo/images/set_main_default.png)
 
-### Configure pull requests jobs
+### Configure pull requests checks
 
-You'll likely be running tests or running static analysis tools when pull requests are created, updated (i.e. a new commit comes in), or re-opened (after being closed). For any job that you want GitHub Actions to run at pull request time, either modify or add jobs to the [`.github/workflows/pull_request.yml`](.github/workflows/pull_request.yml) file.
+You'll likely be running tests or running static analysis tools when pull requests are created, updated (i.e. a new commit comes in), or re-opened (after being closed). For any job that you want GitHub Actions to run at pull request time, either modify or add steps to the [`.github/workflows/pull_request.yml`](.github/workflows/pull_request.yml) file. Commands in the file say how to do this.
 
-The workflow assumes that you'll want a checked out copy of your repository, and the first job does that. The example jobs after it all run in parallel after the `checkout` job completes.
+Additionally, all of the provided pull request steps rely on CI script skeletons that are stored in the `/ci` folder. It's a good practice to use this scripts, which makes for easier and consistent runs between GitHub Actions and local runs before committing.
 
+### Use PostgreSQL and Redis
+
+Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
