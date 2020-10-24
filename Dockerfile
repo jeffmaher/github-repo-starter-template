@@ -2,7 +2,7 @@ FROM alpine:3
 
 # Upgrades packages
 RUN apk --update-cache update
-
+WORKDIR /app
 
 ################################
 # CONFIGURE AT BUILD TIME:
