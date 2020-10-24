@@ -6,8 +6,7 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-  # Creates a copy of your repository, publishes a container to run things in
-  setup:
+  pr_checks:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -18,67 +17,21 @@ jobs:
           context: .
           file: ./Dockerfile
           load: true
-          tags: ${{ github.repository }}
-      - name: Inspect
-        run: docker image inspect ${{ github.repository }}
-      # - name: Login to container registry
-      #   uses: docker/login-action@v1
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.repository_owner }}  # UPDATE THIS (w/ a user with write access to your org's GCHR)
-      #     password: ${{ secrets.GCHR_ACCESS_TOKEN }} # UPDATE THIS (w/ personal access token for that user)
-      # - name: Push container
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     push: true
-      #     tags: $${{ github.repository }}:branch_${{ }}
-
-  
-  ################################################
-  # UPDATE THIS (all below jobs)
-  ################################################
-
-  ## Template for a job that runs after setup
-  # <template job ID>:
-  #   name: <template job name>
-  #   runs-on: ubuntu-latest
-  #   needs: setup
-  #   steps:
-  #     - name: <template step name>
-  #       run: echo 'Run something here'
-
-  debug:
-    name: Debug output (for testing commands)
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Debug output
-        run: docker images
-      - name: Inspect
-        run: docker image inspect ${{ github.repository }}
-
-  
-  lint:
-    name: Linter
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Run Linter
-        run: echo 'Run your linter here'
-  tests:
-    name: Tests
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Run Tests
+          tags: ${{ github.repository }}:${{ github.head_ref }}
+      
+      # LINTER
+      - name: Run linter
+        run: docker run ${{ github.repository }}:${{ github.head_ref }} echo 'Run linter'
+        # run: echo 'Run your linter here'
+      
+      # TESTS
+      - name: Run tests
         run: echo 'Run your tests here'
-  security:
-    name: Security Scans
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
+      
+      # SECURITY
       - name: Run Security Scans
         run: echo 'Run your security scans'
 
-
-# If you want to deploy a branch review environment, you might do that here or outside this config via webhook (for example, Heroku uses a webhooks to do this)
+      # CODE QUALITY
+      - name: Run Code Quality
+        run: echo 'Run code quality scans'
