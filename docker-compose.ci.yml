@@ -1,0 +1,6 @@
+# Use for continuous integration jobs
+
+version: '3'
+services:
+  app:
+    image: "jeffmaher/github-repo-starter-template:${GITHUB_HEAD_REF}"

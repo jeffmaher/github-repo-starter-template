@@ -1,11 +1,8 @@
-# Use for local development
+# Not used by itself, but with the .ci or .dev docker-compose files
 
 version: '3'
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
     volumes:
       - .:/app
   #   ---- SETUP YOUR DEFAULT PORT -----
