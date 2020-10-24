@@ -19,6 +19,8 @@ jobs:
           file: ./Dockerfile
           load: true
           tags: ${{ github.repository }}
+      - name: Inspect
+        run: docker image inspect ${{ github.repository }}
       # - name: Login to container registry
       #   uses: docker/login-action@v1
       #   with:
@@ -52,6 +54,9 @@ jobs:
     steps:
       - name: Debug output
         run: docker images
+      - name: Inspect
+        run: docker image inspect ${{ github.repository }}
+
   
   lint:
     name: Linter
