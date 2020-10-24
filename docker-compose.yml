@@ -1,10 +1,12 @@
+# Base Docker Compose configuration.
 # Not used by itself, but with the CI or DEV override files. Examples below...
 #
-# CI Run Command in App Container (which uses a built container for the app tagged: ${GITHUB_REPOSITORY}/${GITHUB_HEAD_REF} )
-# $ docker-compose -f docker-compose.yml -f docker-compose.ci.yml run app <command>
-
 # DEV Up (which builds the app container)
 # $ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+#
+# CI Run Command in App Container (which uses a built container for the app tagged: ${GITHUB_REPOSITORY}/${GITHUB_HEAD_REF} )
+# $ docker-compose -f docker-compose.yml -f ci/docker-compose.ci.yml run app <command>
+
 
 version: '3'
 services:
