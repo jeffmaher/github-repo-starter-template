@@ -43,7 +43,7 @@ You'll want to change your default branch from `master` to `main`, as a sign of 
 
 You'll likely be running tests or running static analysis tools when pull requests are created, updated (i.e. a new commit comes in), or re-opened (after being closed). For any job that you want GitHub Actions to run at pull request time, either modify or add jobs to the [`.github/workflows/pull_request.yml`](.github/workflows/pull_request.yml) file.
 
-The workflow assumes that you'll want a checked out copy of your repository, and the first job does that. The example jobs after it all run in parallel after the `checkout` job completes.
+The workflow assumes that you'll want a checked out copy of your repository, and the first job does that. The example jobs after it all run in parallel after the `setup` job completes.
 
 ### Use PostgreSQL and Redis
 
