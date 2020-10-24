@@ -21,7 +21,7 @@ jobs:
       
       # LINTER
       - name: Run linter
-        run: docker run ${{ github.repository }}:${{ github.head_ref }} echo 'Run linter'
+        run: docker run ${{ github.repository }}:${{ github.head_ref }} cat /etc/os-release
         # run: echo 'Run your linter here'
       
       # TESTS
