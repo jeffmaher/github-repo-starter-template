@@ -21,7 +21,7 @@ jobs:
       
       # LINTER
       - name: Run linter
-        run: docker-compose -f docker-compose.yml -f docker-compose.ci.yml run app echo "Run linter"
+        run: docker-compose -f docker-compose.yml -f docker-compose.ci.yml run app ls app
         # run: echo 'Run your linter here'
       
       # TESTS
