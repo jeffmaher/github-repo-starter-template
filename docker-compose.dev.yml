@@ -1,4 +1,4 @@
-# Not used by itself, but with the .ci or .dev docker-compose files
+# Use for local development, as an override config to docker-compose.yml
 
 version: '3'
 services:

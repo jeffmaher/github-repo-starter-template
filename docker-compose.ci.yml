@@ -1,6 +1,6 @@
-# Use for continuous integration jobs
+# Use for continuous integration jobs, as an override config to docker-compose.yml
 
 version: '3'
 services:
   app:
-    image: "jeffmaher/github-repo-starter-template:${GITHUB_HEAD_REF}"
+    image: "${GITHUB_REPOSITORY}:${GITHUB_HEAD_REF}"
