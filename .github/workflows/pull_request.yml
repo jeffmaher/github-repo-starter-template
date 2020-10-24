@@ -21,17 +21,17 @@ jobs:
       
       # LINTER
       - name: Run linter
-        run: docker run ${{ github.repository }}:${{ github.head_ref }} cat /etc/os-release
+        run: docker-compose run ${{ github.repository }}:${{ github.head_ref }} app echo "Run linter"
         # run: echo 'Run your linter here'
       
       # TESTS
       - name: Run tests
-        run: cat /etc/os-release
+        run: docker-compose run ${{ github.repository }}:${{ github.head_ref }} app echo "Run tests"
       
       # SECURITY
-      - name: Run Security Scans
-        run: echo 'Run your security scans'
+      - name: Run security scans
+        run: docker-compose run ${{ github.repository }}:${{ github.head_ref }} app echo "Run security scans"
 
       # CODE QUALITY
-      - name: Run Code Quality
-        run: echo 'Run code quality scans'
+      - name: Run code quality scans
+        run: docker-compose run ${{ github.repository }}:${{ github.head_ref }} app echo "Run code quality scans"

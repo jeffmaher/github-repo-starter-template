@@ -11,7 +11,7 @@ services:
     #   - '1337:1337'
     volumes:
       - .:/app
-  # ---- UNCOMMENT TO POSTGRESQL DATABASE AND REDIS (common for web apps) -----
+  # ---- UNCOMMENT BELOW FOR POSTGRESQL DATABASE AND REDIS (common for web apps) -----
   #   links:
   #     - database
   #     - sessions
