@@ -42,7 +42,7 @@ The last checkbox makes sure you don't have a lot of dead branches lingering in 
 
 You'll likely be running tests or running static analysis tools when pull requests are created, updated (i.e. a new commit comes in), or re-opened (after being closed). For any job that you want GitHub Actions to run at pull request time, either modify or add steps to the [`.github/workflows/pull_request.yml`](.github/workflows/pull_request.yml) file. Commands in the file say how to do this.
 
-Additionally, all of the provided pull request steps rely on CI script skeletons that are stored in the `/ci` folder. It's a good practice to use this scripts, which makes for easier and consistent runs between GitHub Actions and local runs before committing.
+Additionally, all of the provided pull request steps rely on CI script skeletons that are stored in the `ci` folder. It's a good practice to use this scripts, which makes for easier and consistent runs between GitHub Actions and local runs before committing.
 
 ### Use PostgreSQL and Redis
 
