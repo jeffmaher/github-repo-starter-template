@@ -22,6 +22,23 @@ This will setup a new repo with the files from within this one.
 1. Add an owner, repo name, and privacy level; then click **Begin Import**.
 1. Wait a moment; take a quick tea break. ☕️
 
+
+### Configure Pull Request Merging
+
+By only allowing squash merging in pull requests, your changes will only be merged in as atomic commits and reduces the amount of noise in your commit log. This makes it easier to rollback changes and see when your `main` branch definitely changed.
+
+To do this, follow these steps:
+
+1. From your repository's page, go to **Settings**.
+2. From the **Merge button** section, have the following settings:
+
+    - [ ] Allow merge commits
+    - [X] Allow squash merging
+    - [ ] Allow rebase merging
+    - [X] Automatically delete head branches
+
+The last checkbox makes sure you don't have a lot of dead branches lingering in your repository. 
+
 ### Configure pull requests checks
 
 You'll likely be running tests or running static analysis tools when pull requests are created, updated (i.e. a new commit comes in), or re-opened (after being closed). For any job that you want GitHub Actions to run at pull request time, either modify or add steps to the [`.github/workflows/pull_request.yml`](.github/workflows/pull_request.yml) file. Commands in the file say how to do this.
