@@ -31,7 +31,6 @@ To do this, follow these steps:
 
 1. From your repository's page, go to **Settings**.
 2. From the **Merge button** section, have the following settings:
-
     - [ ] Allow merge commits
     - [X] Allow squash merging
     - [ ] Allow rebase merging
@@ -48,3 +47,12 @@ Additionally, all of the provided pull request steps rely on CI script skeletons
 ### Use PostgreSQL and Redis
 
 Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
+
+### Turn off GitHub Wiki
+
+Wikis created via GitHub Wiki's tab aren't easy to backup, aren't version controlled in the same stream as the code (i.e. which version of the code does your wiki doc belong to?), and don't have pull requests as a change control mechanism. The feature is better left off and documentation can be stored in the `docs` folder and referenced images for documentation can be put into `docs/images`.
+
+To make sure folks don't use the GitHub Wiki feature, turn it off with the following steps:
+
+1. From your repository's page, go to **Settings**.
+1. From the **Features** section, uncheck **Wikis**.
