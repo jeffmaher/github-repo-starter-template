@@ -1,8 +1,0 @@
-# Use for local development, as an override config to docker-compose.yml
-
-version: '3'
-services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
