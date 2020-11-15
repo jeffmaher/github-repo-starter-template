@@ -51,7 +51,9 @@ You'll likely be running tests or running static analysis tools when pull reques
 
 Additionally, all of the provided pull request steps rely on CI script skeletons that are stored in the `ci` folder. It's a good practice to use this scripts, which makes for easier and consistent runs between GitHub Actions and local runs before committing.
 
-To make the next section easier for requiring status checks, create one pull request to trigger the PR checks.
+Lastly, these instructions assume you're using a web application via Docker container. If that's not the case (i.e. mobile apps, not using Docker, etc.), remove the following text from each step to just leverage the shell script skeletons: `docker-compose -f docker-compose.yml -f ci/docker-compose.ci.yml run app` (i.e. leave `sh ci/<script>.sh`).
+
+_Note: To make the next section easier for requiring status checks, create one pull request to trigger the PR checks._
 
 #### Protect your `main` Branch
 
@@ -81,7 +83,11 @@ To make sure folks don't use the GitHub Wiki feature, turn it off with the follo
 1. From your repository's page, go to **Settings**.
 1. From the **Features** section, uncheck **Wikis**.
 
-### Use PostgreSQL and Redis
+### For web applications
+
+These next instructions 
+
+#### Use PostgreSQL and Redis
 
 Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
 
