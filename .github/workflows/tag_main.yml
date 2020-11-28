@@ -2,9 +2,9 @@
 
 name: Tag main branch
 on: 
-  pull_request:
+  pull_request_target:
     # types: [closed]
-    types: [opened, reopened, synchronize]
+    types: [labeled]
 
 jobs:
   tag_main:
@@ -12,4 +12,10 @@ jobs:
     steps:
       - name: Hello major release
         if: "contains(github.event.labels.*.name, 'release-major')"
-        run: echo "Found label!"
+        run: echo "Found major label!"
+      - name: Hello minor release
+        if: "contains(github.event.labels.*.name, 'release-minor')"
+        run: echo "Found minor label!"
+      - name: Hello minor release
+        if: "contains(github.event.labels.*.name, 'release-pathc')"
+        run: echo "Found patch label!"  
