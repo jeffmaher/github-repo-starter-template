@@ -13,5 +13,5 @@ jobs:
       - name: Dump GitHub context
         # env:
         #   GITHUB_CONTEXT: ${{ toJson(github.event.pull_request) }}
-        if: contains(github.event.labels.*.name, "release-minor")
+        if: contains(github.event.labels.*.name, "release-major")
         run: echo "Found label!"
