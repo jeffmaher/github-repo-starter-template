@@ -5,7 +5,7 @@ name: Tag main branch
 on: 
   pull_request_target:
     # types: [closed]
-    types: [opened, synchronize]
+    types: [opened, reopened, synchronize]
 
 jobs:
   tag_main:
@@ -14,9 +14,9 @@ jobs:
       - name: Hello major release
         if: "contains(github.event.labels.*.name, 'release-major')"
         run: echo "Found major label!"
-      - name: Hello minor release
-        if: "contains(github.event.labels.*.name, 'release-minor')"
-        run: echo "Found minor label!"
-      - name: Hello minor release
-        if: "contains(github.event.labels.*.name, 'release-pathc')"
-        run: echo "Found patch label!"  
+      # - name: Hello minor release
+      #   if: "contains(github.event.labels.*.name, 'release-minor')"
+      #   run: echo "Found minor label!"
+      # - name: Hello minor release
+      #   if: "contains(github.event.labels.*.name, 'release-pathc')"
+      #   run: echo "Found patch label!"  
