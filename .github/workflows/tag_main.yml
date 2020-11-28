@@ -10,8 +10,6 @@ jobs:
   tag_main:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github.event.pull_request) }}
+      - name: Hello major release
         if: "contains(github.event.labels.*.name, 'release-major')"
-        run: echo "Found label! ${GITHUB_CONTEXT}"
+        run: echo "Found label!"
