@@ -5,7 +5,7 @@ name: Tag main branch
 on: 
   pull_request_target:
     # types: [closed]
-    types: [labeled]
+    types: [opened, synchronize]
 
 jobs:
   tag_main:
