@@ -5,13 +5,17 @@ name: Tag main branch
 on: 
   pull_request:
     # types: [closed]
-    # types: [opened, reopened, synchronize]
-    types: [labeled, unlabeled]
+    types: [opened, reopened, synchronize]
+    # types: [labeled, unlabeled]
 
 jobs:
   tag_main:
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Hello major release
         if: "contains(github.event.labels.*.name, 'release-major')"
         run: echo "Found major label!"
@@ -21,7 +25,6 @@ jobs:
       - name: Hello minor release
         if: "contains(github.event.labels.*.name, 'release-patch')"
         run: echo "Found patch label!"  
-      - name: Hello wordl
-        # if: "contains(github.event.labels.*.name, 'release-pathc')"
+      - name: Hello world
         run: echo "Hello world" 
  
