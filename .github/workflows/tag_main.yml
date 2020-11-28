@@ -6,7 +6,6 @@ on:
   pull_request:
     # types: [closed]
     types: [opened, reopened, synchronize, labeled, unlabeled]
-    # types: [labeled, unlabeled]
 
 jobs:
   tag_main:
@@ -18,16 +17,16 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Dump GitHub labels context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.event.labels) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.labels) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Hello major release
-        if: "contains(github.event.labels.*.name, 'release-major')"
+        if: "contains(github.event.pull_request.labels.*.name, 'release-major')"
         run: echo "Found major label!"
       - name: Hello minor release
-        if: "contains(github.event.labels.*.name, 'release-minor')"
+        if: "contains(github.event.pull_request.labels.*.name, 'release-minor')"
         run: echo "Found minor label!"
       - name: Hello minor release
-        if: "contains(github.event.labels.*.name, 'release-patch')"
+        if: "contains(github.event.pull_request.labels.*.name, 'release-patch')"
         run: echo "Found patch label!"  
       - name: Hello world
         run: echo "Hello world" 
