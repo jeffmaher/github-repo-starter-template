@@ -18,7 +18,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Dump GitHub labels context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.event.labels.*.name) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.labels) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Hello major release
         if: "contains(github.event.labels.*.name, 'release-major')"
