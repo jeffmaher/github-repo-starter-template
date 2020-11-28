@@ -1,5 +1,5 @@
 # Run when the PR is closed
-# -
+# --
 
 name: Tag main branch
 on: 
