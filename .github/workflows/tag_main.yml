@@ -1,5 +1,5 @@
 # Run when the PR is closed
-# --
+# ---
 
 name: Tag main branch
 on: 
@@ -21,3 +21,7 @@ jobs:
       - name: Hello minor release
         if: "contains(github.event.labels.*.name, 'release-pathc')"
         run: echo "Found patch label!"  
+      - name: Hello wordl
+        # if: "contains(github.event.labels.*.name, 'release-pathc')"
+        run: echo "Hello world" 
+ 
