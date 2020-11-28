@@ -19,7 +19,7 @@ jobs:
         if: "contains(github.event.labels.*.name, 'release-minor')"
         run: echo "Found minor label!"
       - name: Hello minor release
-        if: "contains(github.event.labels.*.name, 'release-pathc')"
+        if: "contains(github.event.labels.*.name, 'release-patch')"
         run: echo "Found patch label!"  
       - name: Hello wordl
         # if: "contains(github.event.labels.*.name, 'release-pathc')"
