@@ -1,0 +1,16 @@
+# Run when the PR is closed
+
+name: Tag main branch
+on: 
+  pull_request:
+    # types: [closed]
+    types: [opened, reopened, synchronize]
+
+jobs:
+  tag_main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github.event) }}
+        run: echo "$GITHUB_CONTEXT"
