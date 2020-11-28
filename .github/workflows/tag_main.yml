@@ -5,7 +5,7 @@ name: Tag main branch
 on: 
   pull_request:
     # types: [closed]
-    types: [opened, reopened, synchronize]
+    types: [opened, reopened, synchronize, labeled, unlabeled]
     # types: [labeled, unlabeled]
 
 jobs:
@@ -15,6 +15,10 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump GitHub labels context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github.event.labels.*.name) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Hello major release
         if: "contains(github.event.labels.*.name, 'release-major')"
