@@ -4,6 +4,7 @@ name: Check for release labels
 on: 
   pull_request:
     types: [opened, reopened, synchronize, labeled, unlabeled]
+    branches: main
 
 jobs:
   label_checks:
