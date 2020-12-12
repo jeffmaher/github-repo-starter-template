@@ -1,0 +1,22 @@
+# Run when the PR is closed
+# ---
+
+name: Dump PR context
+on: 
+  pull_request:
+    types: [opened, reopened, synchronize, labeled, unlabeled]
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump GitHub labels context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.labels) }}
+        run: echo "$GITHUB_CONTEXT"
+
+ 

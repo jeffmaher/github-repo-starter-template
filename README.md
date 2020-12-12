@@ -74,6 +74,22 @@ To ensure that anything that gets merged to your `main` branch goes through peer
     - [X] Require signed commits _(Optional: if you want your commits to be end-to-end encrypted in transit)_
     - [X] Include administrators
 
+#### Automate versioning of your `main` branch
+
+Doing these steps will automatically version your `main` branch whenever you merge a pull request to it (i.e. cut a version whenever the code changes) using a [SemVer-style versioning scheme](https://semver.org). This will help with the creation and labeling of build artifacts, make it easier for release processes and managers to deploy deliberate versions of the codebase, and make investigation and fixing of the issues simpler since you'll know exactly what the code looked like for any deployed artifact.
+
+Start by adding some release labels:
+
+1. In your web browser, go to your repo
+1. Go to the **Issues** tab
+1. Go to the **Labels** tab
+1. Add the following **New label**s:
+    - `release: major`
+    - `release: minor`
+    - `release: patch`
+
+TODO: More description on what's to happen?
+
 #### Turn off GitHub Wiki
 
 Wikis created via GitHub Wiki's tab aren't easy to backup, aren't version controlled in the same stream as the code (i.e. which version of the code does your wiki doc belong to?), and don't have pull requests as a change control mechanism. The feature is better left off and documentation can be stored in the `docs` folder and referenced images for documentation can be put into `docs/images`.
