@@ -20,6 +20,8 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Gets all the tags
       - name: Dump list of tags
         run: git tag
       - name: Run the semver script
