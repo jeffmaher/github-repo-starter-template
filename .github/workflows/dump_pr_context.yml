@@ -18,5 +18,10 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.labels) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: Dump list of tags
+        run: git tag
+      - name: Run the semver script
+        run: bash ci/semver.sh bump minor 0.0.0
+
 
  
