@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Gets all the tags
       - name: Tag major release
         if: contains(github.event.pull_request.labels.*.name, 'release-major')
         run: git tag $(bash ci/semver.sh bump major $(git tag -l --sort "v:refname" "*.*.*" | tail -1))
