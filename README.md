@@ -10,6 +10,7 @@ It currently includes:
     - Disabling undesirable GitHub features (i.e. wiki, etc.)
 - GitHub Actions for 
     - Pull request status checks, at PR creation and update (i.e. where you might want to run tests)
+    - Automatically building artifacts with [SemVer](https://semver.org) version numbers based on PR release labels
 - For web apps:
     - Dockerfile and Docker Compose (with PostgreSQL and Redis commented out defaults)
 - For native mobile apps:
@@ -49,7 +50,7 @@ The last checkbox makes sure you don't have a lot of dead branches lingering in 
 
 You'll likely be running tests or running static analysis tools when pull requests are created, updated (i.e. a new commit comes in), or re-opened (after being closed). For any job that you want GitHub Actions to run at pull request time, either modify or add steps to the [`.github/workflows/pull_request.yml`](.github/workflows/pull_request.yml) file. Commands in the file say how to do this.
 
-Additionally, all of the provided pull request steps rely on CI script skeletons that are stored in the `ci` folder. It's a good practice to use this scripts, which makes for easier and consistent runs between GitHub Actions and local runs before committing.
+Additionally, all of the provided pull request steps rely on CI script skeletons that are stored in the `ci` folder. It's a good practice to use these scripts, which makes for easier and consistent runs between GitHub Actions and local runs before committing.
 
 Lastly, these instructions assume you're using a web application via Docker container. If that's not the case (i.e. mobile apps, not using Docker, etc.), remove the following text from each step to just leverage the shell script skeletons: `docker-compose -f docker-compose.yml -f ci/docker-compose.ci.yml run app` (i.e. leave `sh ci/<script>.sh`).
 
@@ -74,7 +75,7 @@ To ensure that anything that gets merged to your `main` branch goes through peer
     - [X] Require signed commits _(Optional: if you want your commits to be end-to-end encrypted in transit)_
     - [X] Include administrators
 
-#### Automate versioning of your `main` branch
+#### Automate versioning of your `main` branch and publish build artifacts
 
 Doing these steps will automatically version your `main` branch whenever you merge a pull request to it (i.e. cut a version whenever the code changes) using a [SemVer-style versioning scheme](https://semver.org). This will help with the creation and labeling of build artifacts, make it easier for release processes and managers to deploy deliberate versions of the codebase, and make investigation and fixing of the issues simpler since you'll know exactly what the code looked like for any deployed artifact.
 
@@ -84,11 +85,11 @@ Start by adding some release labels:
 1. Go to the **Issues** tab
 1. Go to the **Labels** tab
 1. Add the following **New label**s:
-    - `release: major`
-    - `release: minor`
-    - `release: patch`
-
-TODO: More description on what's to happen?
+    - `release-major`
+    - `release-minor`
+    - `release-patch`
+1. Enable the `one_release_tag` PR status check as mandatory on any PRs to your `main` branch (see [Protect your `main` branch for instructions](#protect-your-main-branch)).
+1. Next time you merge a PR to `main`, a new version tag will get cut incrementing from the last highest version number AND it will run the [build/publish script](ci/build_and_publish.sh) (which you should setup with the appropriate commands).
 
 #### Turn off GitHub Wiki
 
