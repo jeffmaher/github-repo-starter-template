@@ -1,2 +1,3 @@
 Major
 Minor
+Patch
