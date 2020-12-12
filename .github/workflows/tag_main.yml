@@ -1,5 +1,5 @@
-# # Run when the PR is closed
-# # ---
+# Run when the PR is closed
+# ---
 
 # name: Tag main branch
 # on: 
@@ -19,15 +19,5 @@
 #         env:
 #           GITHUB_CONTEXT: ${{ toJson(github.event.pull_request.labels) }}
 #         run: echo "$GITHUB_CONTEXT"
-#       - name: Hello major release
-#         if: "contains(github.event.pull_request.labels.*.name, 'release-major')"
-#         run: echo "Found major label!"
-#       - name: Hello minor release
-#         if: "contains(github.event.pull_request.labels.*.name, 'release-minor')"
-#         run: echo "Found minor label!"
-#       - name: Hello minor release
-#         if: "contains(github.event.pull_request.labels.*.name, 'release-patch')"
-#         run: echo "Found patch label!"  
-#       - name: Hello world
-#         run: echo "Hello world" 
+
  
