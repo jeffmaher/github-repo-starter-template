@@ -88,7 +88,8 @@ Start by adding some release labels:
     - `release-major`
     - `release-minor`
     - `release-patch`
-1. Enable the `one_release_tag` PR status check as mandatory on any PRs to your `main` branch (see [Protect your `main` branch for instructions](#protect-your-main-branch)).
+1. Enable the `one_release_label` PR status check as mandatory on any PRs to your `main` branch (see [Protect your `main` branch for instructions](#protect-your-main-branch)).
+1. Create a `0.0.0` tag on your repo (you can do this from the **Releases** section of your repo on GitHub)
 1. Next time you merge a PR to `main`, a new version tag will get cut incrementing from the last highest version number AND it will run the [build/publish script](ci/build_and_publish.sh) (which you should setup with the appropriate commands).
 
 #### Turn off GitHub Wiki
