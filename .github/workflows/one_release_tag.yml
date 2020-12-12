@@ -7,7 +7,7 @@ on:
     branches: main
 
 jobs:
-  label_checks:
+  one_release_tag:
     runs-on: ubuntu-latest
     steps:
       - name: At least one release label applied
