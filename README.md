@@ -10,7 +10,8 @@ It currently includes:
     - Disabling undesirable GitHub features (i.e. wiki, etc.)
 - GitHub Actions for 
     - Pull request status checks, at PR creation and update (i.e. where you might want to run tests)
-    - Automatically building artifacts with [SemVer](https://semver.org) version numbers based on PR release labels
+    - Automatically tag changes to the `main` branch based on auto-incremented [SemVer](https://semver.org) version numbers
+    - ^ Then publish your build artifacts for that version tag
 - For web apps:
     - Dockerfile and Docker Compose (with PostgreSQL and Redis commented out defaults)
 - For native mobile apps:
@@ -90,7 +91,7 @@ Start by adding some release labels:
     - `release-patch`
 1. Enable the `one_release_label` PR status check as mandatory on any PRs to your `main` branch (see [Protect your `main` branch for instructions](#protect-your-main-branch)).
 1. Create a `0.0.0` tag on your repo (you can do this from the **Releases** section of your repo on GitHub)
-1. Next time you merge a PR to `main`, a new version tag will get cut incrementing from the last highest version number AND it will run the [build/publish script](ci/build_and_publish.sh) (which you should setup with the appropriate commands).
+1. Next time you merge a PR to `main`, a new version tag will get cut incrementing from the last highest version number AND it will run the [build/publish script](ci/publish_build.sh) (which you should setup with the appropriate commands).
 
 #### Turn off GitHub Wiki
 
