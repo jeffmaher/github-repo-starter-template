@@ -4,7 +4,7 @@ A starter repo for new projects. Adds CI and build/release defaults, and setup i
 
 It currently includes:
 
-- Instructions to get started
+- Setup instructions for a new repo
 - Repo configurations for
     - Having a protected and clean `main` branch
     - Disabling undesirable GitHub features (i.e. wiki, etc.)
