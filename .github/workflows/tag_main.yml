@@ -26,7 +26,7 @@ jobs:
         run: git tag $(bash ci/semver.sh bump patch $(git tag -l --sort "v:refname" "*.*.*" | tail -1))
       - name: Push tag
         run: git push origin --tags
-      - name: Build and publish artifacts
-        run: sh ci/build_and_publish.sh
+      - name: Build and publish artifacts (passing in version tag)
+        run: sh ci/build_and_publish.sh $(git tag -l --sort "v:refname" "*.*.*" | tail -1))
 
  

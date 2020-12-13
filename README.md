@@ -10,7 +10,8 @@ It currently includes:
     - Disabling undesirable GitHub features (i.e. wiki, etc.)
 - GitHub Actions for 
     - Pull request status checks, at PR creation and update (i.e. where you might want to run tests)
-    - Automatically building artifacts with [SemVer](https://semver.org) version numbers based on PR release labels
+    - Automatically tag changes to the `main` branch based on auto-incremented [SemVer](https://semver.org) version numbers
+    - ^ Then publish your build artifacts for that version tag
 - For web apps:
     - Dockerfile and Docker Compose (with PostgreSQL and Redis commented out defaults)
 - For native mobile apps:
