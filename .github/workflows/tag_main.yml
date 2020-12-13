@@ -27,6 +27,6 @@ jobs:
       - name: Push tag
         run: git push origin --tags
       - name: Build and publish artifacts (passing in version tag)
-        run: sh ci/build_and_publish.sh $(git tag -l --sort "v:refname" "*.*.*" | tail -1))
+        run: sh ci/publish_build.sh $(git tag -l --sort "v:refname" "*.*.*" | tail -1))
 
  

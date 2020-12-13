@@ -1,3 +1,6 @@
+# ARGS
+# $1: Version tag (i.e. "1.0.0")
+
 # Fail if any command exits with a non-zero exit code
 set -e 
 
