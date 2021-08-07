@@ -132,3 +132,7 @@ This describes your repository in plain language. Important things to include ar
 
 What you allow people to do with your code should be described in here. Consider starting with [an already existing license](https://choosealicense.com/).
 
+#### `CONTRIBUTING.md`
+
+These are instructions for how people can contribute to your repository (or whether contributions are even accepted). [Mozilla Science has a good explanation](https://mozillascience.github.io/working-open-workshop/contributing/#steps-to-complete) of what might go into this file.
+
