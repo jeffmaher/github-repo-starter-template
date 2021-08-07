@@ -116,6 +116,19 @@ These next instructions
 Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
 
 
-### Last updates
+### Update info files
 
-Remember to update your `README.md` and `LICENSE` files if you haven't done so already.
+There are a few files that explain to others what your repository is for and how to use it. You should replace the content of these files with your own stuff. Those files are:
+
+#### [`README.md`](README.md)
+
+This describes your repository in plain language. Important things to include are:
+
+- Name of the repository
+- 1-3 paragraph summary of what it does and who it's for
+- Instructions on how to use it (or a link to them) from a new computer or blank virtual machine
+
+#### `LICENSE`
+
+What you allow people to do with your code should be described in here. Consider starting with [an already existing license](https://choosealicense.com/).
+
