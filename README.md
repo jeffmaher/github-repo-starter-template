@@ -33,6 +33,8 @@ This will setup a new repo with the files from within this one.
 1. Copy the template's files into your repository: `cp -r ./* <path to your repository>`
 1. Go back to your new repository, and commit the copied files: `cd <path to your new repository> && git add . && git commit -m "Setting up repo with jeffmaher/github-repo-starter-template" && git push`
 
+(Alternately, you can fork this repository and [then reference it as a template during the repository creation process](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-repository-from-a-template).)
+
 ### Repo configuration
 
 #### Configure pull request merging
