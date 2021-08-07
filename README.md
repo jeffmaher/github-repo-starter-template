@@ -25,10 +25,13 @@ This will guide you through getting setup with this repo's default files and pra
 
 This will setup a new repo with the files from within this one.
 
-1. [Create a new repo via import](https://github.com/new/import)
-1. In **Your old repository's clone URL** enter this repo's HTTPS URL: `https://github.com/jeffmaher/github-starter-template.git`
-1. Add an owner, repo name, and privacy level; then click **Begin Import**.
-1. Wait a moment; take a quick tea break. ☕️
+1. [Create a new repo on GitHub](https://github.com/new)
+1. Clone your repository locally
+1. Clone this repository: `git clone https://github.com/jeffmaher/github-starter-template.git`
+1. Using your terminal, navigate into the cloned github-starter-template directory: `cd <path to your template clone>`
+1. Delete Git metafiles from the template repository: `rm -rf .git* `
+1. Copy the template's files into your repository: `cp -r ./* <path to your repository>`
+1. Go back to your new repository, and commit the copied files: `cd <path to your new repository> && git add . && git commit -m "Setting up repo with jeffmaher/github-repo-starter-template" && git push`
 
 ### Repo configuration
 
@@ -110,3 +113,7 @@ These next instructions
 
 Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
 
+
+### Last updates
+
+Remember to update your `README.md` and `LICENSE` files if you haven't done so already.
