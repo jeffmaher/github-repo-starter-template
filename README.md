@@ -128,7 +128,7 @@ This describes your repository in plain language. Important things to include ar
 - 1-3 paragraph summary of what it does and who it's for
 - Instructions on how to use it (or a link to them) from a new computer or blank virtual machine
 
-#### `LICENSE`
+#### `LICENSE.md`
 
 What you allow people to do with your code should be described in here. Consider starting with [an already existing license](https://choosealicense.com/).
 
