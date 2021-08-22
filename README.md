@@ -111,10 +111,10 @@ To make sure folks don't use the GitHub Wiki feature, turn it off with the follo
 
 If there are files that you want to have extra protections on or that you want folks with specific expertise to review, you might consider configuring a `CODEOWNERS` file. A file with commented out examples of when you might want to do this is provided at [`.github/CODEOWNERS`](.github/CODEOWNERS). Some of these examples might include:
 
+- In continuous delivery environments, requiring a product owner and a developer to sign-off on any change
 - Getting your UX visual design group to review any UI change (i.e. changes to any UI code)
 - When a security policy is changed, requiring your security group to review
 - Any GitHub configuration changes should be reviewed by a core contributor
-- In continuous delivery environments, requiring a product owner to sign-off on changes
 
 This feature is more powerful in GitHub repos that live within a GitHub org rather than individual accounts since you can reference groups within your org. This not only makes it easier to maintain, but allows "OR" like behaviour. For example, if you mark `README.md` as being owned by three individual users, then all 3 need to review the file before it is approved. If you place these three individuals in a GitHub org group, then the file can be owned by the group and only one of them needs to review the file for approval. 
 
