@@ -74,7 +74,7 @@ To ensure that anything that gets merged to your `main` branch goes through peer
     - Branch name pattern: `main`
     - [X] Require pull request reviews before merging
         - [X] Dismiss stale pull request approvals when new commits are pushed
-        - [X] Requre review from Code Owners (TODO: Add instructions for this)
+        - [X] Require review from Code Owners (see [later section](#require-reviews-from-specific-people-or-groups) to configure)
     - [X] Require status checks to pass before merging
         - [X] Require branches to be up to date before merging
             - _(After your first pull request, come back here and select required checks)_
@@ -107,7 +107,7 @@ To make sure folks don't use the GitHub Wiki feature, turn it off with the follo
 1. From your repository's page, go to **Settings**.
 1. From the **Features** section, uncheck **Wikis**.
 
-#### Require reviews from specific people/groups
+#### Require reviews from specific people or groups
 
 If there are files that you want to have extra protections on or that you want folks with specific expertise to review, you might consider configuring a `CODEOWNERS` file. A file with commented out examples of when you might want to do this is provided at [`.github/CODEOWNERS`](.github/CODEOWNERS). Some of these examples might include:
 
