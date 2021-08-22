@@ -1,0 +1,29 @@
+# Each line is a file pattern followed by one or more owners.
+# Order is important; the last matching pattern takes the most
+# precedence. This means that you should put broad things first.
+
+# Here are a few examples:
+
+
+# ---
+# In continuous delivery environments, requiring a product owner and a developer to sign-off on any change
+# *         @my-org/developers @product-owner-person
+# Or, if your product owner(s) are in a group (probably a better resilience practice, even if only 1 person)
+# *         @my-org/developers @my-org/product-ownership
+# Or, if you're a pretty dev-centric org, maybe just make sure at least one developer approves
+# *         @my-org/developers
+
+
+# ---
+# Getting your UX visual design group to review any UI change (i.e. changes to any UI code)
+# src/ui/*      @my-org/visual-designers
+
+
+# ---
+# When configuration defaults are changed, requiring your security group to review
+# config/defaults/*     @my-org/security
+
+
+# ---
+# Any GitHub configuration changes should be reviewed by a core contributor
+# .github/*     @my-org/core-contribs

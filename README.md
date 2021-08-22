@@ -74,7 +74,7 @@ To ensure that anything that gets merged to your `main` branch goes through peer
     - Branch name pattern: `main`
     - [X] Require pull request reviews before merging
         - [X] Dismiss stale pull request approvals when new commits are pushed
-        - [X] Requre review from Code Owners (TODO: Add instructions for this)
+        - [X] Require review from Code Owners (see [later section](#require-reviews-from-specific-people-or-groups) to configure)
     - [X] Require status checks to pass before merging
         - [X] Require branches to be up to date before merging
             - _(After your first pull request, come back here and select required checks)_
@@ -107,14 +107,18 @@ To make sure folks don't use the GitHub Wiki feature, turn it off with the follo
 1. From your repository's page, go to **Settings**.
 1. From the **Features** section, uncheck **Wikis**.
 
-### For web applications
+#### Require reviews from specific people or groups
 
-These next instructions 
+If there are files that you want to have extra protections on or that you want folks with specific expertise to review, you might consider configuring a `CODEOWNERS` file. A file with commented out examples of when you might want to do this is provided at [`.github/CODEOWNERS`](.github/CODEOWNERS). Some of these examples might include:
 
-#### Use PostgreSQL and Redis
+- In continuous delivery environments, requiring a product owner and a developer to sign-off on any change
+- Getting your UX visual design group to review any UI change (i.e. changes to any UI code)
+- When a security policy is changed, requiring your security group to review
+- Any GitHub configuration changes should be reviewed by a core contributor
 
-Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
+This feature is more powerful in GitHub repos that live within a GitHub org rather than individual accounts since you can reference groups within your org. This not only makes it easier to maintain, but allows "OR" like behaviour. For example, if you mark `README.md` as being owned by three individual users, then all 3 need to review the file before it is approved. If you place these three individuals in a GitHub org group, then the file can be owned by the group and only one of them needs to review the file for approval. 
 
+More information can be found in [GitHub's docs](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-code-owners).
 
 ### Update info files
 
@@ -136,3 +140,10 @@ What you allow people to do with your code should be described in here. Consider
 
 These are instructions for how people can contribute to your repository (or whether contributions are even accepted). [Mozilla Science has a good explanation](https://mozillascience.github.io/working-open-workshop/contributing/#steps-to-complete) of what might go into this file.
 
+### For web applications
+
+These next instructions 
+
+#### Use PostgreSQL and Redis
+
+Lots of web applications use PostgreSQL and Redis for their database and session stores, respetively. If this is your case, see [`docker-compose.yml`](docker-compose.yml) to uncomment lines that include this in your Docker Compose setup.
