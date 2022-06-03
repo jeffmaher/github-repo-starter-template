@@ -29,7 +29,7 @@ This will setup a new repo with the files from within this one.
 1. Clone your repository locally
 1. Clone this repository: `git clone https://github.com/jeffmaher/github-starter-template.git`
 1. Using your terminal, navigate into the cloned github-starter-template directory: `cd <path to your template clone>`
-1. Delete Git metafiles from the template repository: `rm -rf .git* `
+1. Delete Git metafiles from the template repository: `rm -rf .git`
 1. Copy the template's files into your repository: `cp -r ./* <path to your repository>`
 1. Go back to your new repository, and commit the copied files: `cd <path to your new repository> && git add . && git commit -m "Setting up repo with jeffmaher/github-repo-starter-template" && git push`
 
@@ -44,7 +44,7 @@ By only allowing squash merging in pull requests, your changes will only be merg
 To do this, follow these steps:
 
 1. From your repository's page, go to **Settings**.
-2. From the **Merge button** section, have the following settings:
+2. From the **Pull Requests** section, have the following settings:
     - [ ] Allow merge commits
     - [X] Allow squash merging
     - [ ] Allow rebase merging
@@ -58,7 +58,7 @@ You'll likely be running tests or running static analysis tools when pull reques
 
 Additionally, all of the provided pull request steps rely on CI script skeletons that are stored in the `ci` folder. It's a good practice to use these scripts, which makes for easier and consistent runs between GitHub Actions and local runs before committing.
 
-Lastly, these instructions assume you're using a web application via Docker container. If that's not the case (i.e. mobile apps, not using Docker, etc.), remove the following text from each step to just leverage the shell script skeletons: `docker-compose -f docker-compose.yml -f ci/docker-compose.ci.yml run app` (i.e. leave `sh ci/<script>.sh`).
+Lastly, these instructions assume you're using a web application via Docker container. If that's not the case (i.e. mobile apps, not using Docker, etc.), adjust the workflow files according. For example, for a non-Docker app, you might remove the Docker commands and just use the shell scripts (i.e. remove the Docker command: `docker-compose -f docker-compose.yml -f ci/docker-compose.ci.yml run app`, then leave `sh ci/<script>.sh`).
 
 _Note: To make the next section easier for requiring status checks, create one pull request to trigger the PR checks._
 
@@ -142,7 +142,7 @@ These are instructions for how people can contribute to your repository (or whet
 
 ### For web applications
 
-These next instructions 
+Use these next instructions...
 
 #### Use PostgreSQL and Redis
 
